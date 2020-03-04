@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface SysPositionServier extends IService<SysPositionEntity> {
-//    /**
-//     * 获取岗位ID，用于数据过滤
-//     */
-// List<Long>getSubDeptIdList(Long postionId);
+    /**
+     * 获取岗位ID，用于数据过滤
+     */
+ List<Long>getSubDeptIdList(Long postionId);
 
     List<SysPositionEntity> queryList(Map<String,Object> params);
 

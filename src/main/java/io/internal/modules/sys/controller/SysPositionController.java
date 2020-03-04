@@ -26,7 +26,7 @@ public class SysPositionController extends AbstractController{
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("sys:position:list")
+    @RequiresPermissions("sys:position:list")
     public List<SysPositionEntity> list(){
         List<SysPositionEntity> list = new ArrayList<>();
         list = sysPositionServier.queryList(new HashMap<String,Object>());
@@ -35,16 +35,37 @@ public class SysPositionController extends AbstractController{
     }
 
     /**
+     * 选择部门(添加、修改菜单)
+     */
+    @RequestMapping("/select")
+    @RequiresPermissions("sys:position:select")
+    public R select(){
+        List<SysPositionEntity> positionList = sysPositionServier.queryList(new HashMap<String, Object>());
+
+        //添加部门
+        if(getUserId() == Constant.SUPER_ADMIN){
+            SysPositionEntity root = new SysPositionEntity();
+            root.setPositionId(0L);
+            root.setName("一级部门");
+            root.setParentId(-1L);
+            root.setOpen(true);
+            positionList.add(root);
+        }
+
+        return R.ok().put("positionList", positionList);
+    }
+
+    /**
      * 部门Id(管理员则为0)
      */
     @RequestMapping("/info")
-   // @RequiresPermissions("sys:dept:list")
+    @RequiresPermissions("sys:dept:list")
     public R info(){
        long positionId = 0;
        if(getUserId() != Constant.SUPER_ADMIN) {
-           List<SysPositionEntity> positionlist = sysPositionServier.queryList(new HashMap<String, Object>());
+           List<SysPositionEntity> positionList = sysPositionServier.queryList(new HashMap<String, Object>());
            Long parentId = null;
-           for (SysPositionEntity positionEntity : positionlist) {
+           for (SysPositionEntity positionEntity : positionList) {
               if (parentId == null){
                  parentId = positionEntity.getParentId();
                  continue;
@@ -56,13 +77,13 @@ public class SysPositionController extends AbstractController{
            }
            positionId = parentId;
        }
-       return R.ok().put("position",positionId);
+       return R.ok().put("positionId",positionId);
     }
 
     /**
      * 信息
      */
-    @RequestMapping("/info/{deptId}")
+    @RequestMapping("/info/{positionId}")
     @RequiresPermissions("sys:dept:info")
     public R info(@PathVariable("positionId") Long positionId){
         SysPositionEntity position = sysPositionServier.getById(positionId);
