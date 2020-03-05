@@ -22,7 +22,7 @@ import java.util.Map;
 /**
  * APP登录授权
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 @RestController
 @RequestMapping("/app")

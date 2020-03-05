@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 /**
  * 登录用户信息
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)

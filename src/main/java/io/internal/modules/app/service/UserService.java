@@ -10,7 +10,7 @@ import io.internal.modules.app.form.LoginForm;
 /**
  * 用户
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public interface UserService extends IService<UserEntity> {
 

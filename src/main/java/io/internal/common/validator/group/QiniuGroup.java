@@ -5,7 +5,7 @@ package io.internal.common.validator.group;
 /**
  * 七牛
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public interface QiniuGroup {
 }

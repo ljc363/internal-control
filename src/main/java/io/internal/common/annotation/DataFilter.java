@@ -17,7 +17,7 @@ public @interface DataFilter {
     boolean user() default true;
 
     /**  true：拥有岗位数据权限 */
-    boolean subDept() default false;
+    boolean subPosition() default false;
 
     /**  岗位ID */
     String positionId() default "position_id";

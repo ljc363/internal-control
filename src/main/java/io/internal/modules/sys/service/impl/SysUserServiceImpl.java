@@ -10,7 +10,9 @@ import io.internal.common.utils.Constant;
 import io.internal.common.utils.PageUtils;
 import io.internal.common.utils.Query;
 import io.internal.modules.sys.dao.SysUserDao;
+import io.internal.modules.sys.entity.SysPositionEntity;
 import io.internal.modules.sys.entity.SysUserEntity;
+import io.internal.modules.sys.service.SysPositionServier;
 import io.internal.modules.sys.service.SysRoleService;
 import io.internal.modules.sys.service.SysUserRoleService;
 import io.internal.modules.sys.service.SysUserService;
@@ -30,7 +32,7 @@ import java.util.Map;
 /**
  * 系统用户
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 @Service("sysUserService")
 public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> implements SysUserService {
@@ -38,6 +40,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
 	private SysUserRoleService sysUserRoleService;
 	@Autowired
 	private SysRoleService sysRoleService;
+	@Autowired
+	private SysPositionServier sysPositionServier;
 
 	@Override
 	public PageUtils queryPage(Map<String, Object> params) {
@@ -52,7 +56,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUserEntity> i
 				.apply(params.get(Constant.SQL_FILTER) != null, (String)params.get(Constant.SQL_FILTER))
 		);
 		for (SysUserEntity sysUserEntity : page.getRecords()){
-
+		SysPositionEntity sysPositionEntity = sysPositionServier.getById(sysUserEntity.getPositionId());
+			sysUserEntity.setPositionName(sysPositionEntity.getName());
 
 		}
 

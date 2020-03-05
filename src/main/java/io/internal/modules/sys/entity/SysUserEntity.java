@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * 系统用户
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 @Data
 @TableName("sys_user")
@@ -50,15 +50,15 @@ public class SysUserEntity implements Serializable {
 	 */
 	private String salt;
 
-
 	/**
 	 * 岗位ID
 	 */
 	@NotNull(message="岗位ID不能为空", groups = {AddGroup.class, UpdateGroup.class})
 	private Long positionId;
 
+
 	/**
-	 * 岗位名称
+	 * 部门名称
 	 */
 	@TableField(exist=false)
 	private String positionName;

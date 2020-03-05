@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 /**
  * 角色
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 @Data
 @TableName("sys_role")
@@ -38,7 +39,19 @@ public class SysRoleEntity implements Serializable {
 	 * 备注
 	 */
 	private String remark;
-	
+
+	/**
+	 * 岗位ID
+	 */
+	@NotNull(message="岗位不能为空")
+	private Long positionId;
+
+	/**
+	 * 岗位名称
+	 */
+	@TableField(exist=false)
+	private String positionName;
+
 	/**
 	 * 创建者ID
 	 */
@@ -46,7 +59,9 @@ public class SysRoleEntity implements Serializable {
 
 	@TableField(exist=false)
 	private List<Long> menuIdList;
-	
+
+	@TableField(exist=false)
+	private List<Long> positionIdList;
 	/**
 	 * 创建时间
 	 */

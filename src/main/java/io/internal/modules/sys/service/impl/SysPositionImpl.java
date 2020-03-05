@@ -26,7 +26,7 @@ public class SysPositionImpl extends ServiceImpl<SysPositionDao, SysPositionEnti
     }
 
     @Override
-    @DataFilter(subDept = true, user = false, tableAlias = "t1")
+    @DataFilter(subPosition = true, user = false, tableAlias = "t1")
     public List<SysPositionEntity> queryList(Map<String, Object> params) {
         return baseMapper.queryList(params);
     }

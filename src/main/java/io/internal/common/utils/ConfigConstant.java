@@ -5,7 +5,7 @@ package io.internal.common.utils;
 /**
  * 系统参数相关Key
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public class ConfigConstant {
     /**

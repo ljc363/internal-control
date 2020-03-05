@@ -5,7 +5,7 @@ package io.internal.datasource.properties;
 /**
  * 多数据源属性
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  * @since 1.0.0
  */
 public class DataSourceProperties {

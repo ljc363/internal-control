@@ -5,7 +5,7 @@ package io.internal.common.utils;
 /**
  * Redis所有Keys
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public class RedisKeys {
 

@@ -9,7 +9,7 @@ import io.internal.modules.sys.entity.SysUserTokenEntity;
 /**
  * 用户Token
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public interface SysUserTokenService extends IService<SysUserTokenEntity> {
 

@@ -9,6 +9,7 @@ import io.internal.common.utils.R;
 import io.internal.common.validator.ValidatorUtils;
 import io.internal.modules.sys.entity.SysRoleEntity;
 import io.internal.modules.sys.service.SysRoleMenuService;
+import io.internal.modules.sys.service.SysRolePositionService;
 import io.internal.modules.sys.service.SysRoleService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import java.util.Map;
 /**
  * 角色管理
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 @RestController
 @RequestMapping("/sys/role")
@@ -30,7 +31,8 @@ public class SysRoleController extends AbstractController {
 	private SysRoleService sysRoleService;
 	@Autowired
 	private SysRoleMenuService sysRoleMenuService;
-
+	@Autowired
+	private SysRolePositionService sysRolePositionService;
 	/**
 	 * 角色列表
 	 */
@@ -75,7 +77,9 @@ public class SysRoleController extends AbstractController {
 		//查询角色对应的菜单
 		List<Long> menuIdList = sysRoleMenuService.queryMenuIdList(roleId);
 		role.setMenuIdList(menuIdList);
-		
+
+		List<Long>positionIdList = sysRolePositionService.qureyPositionList(new Long[] {roleId});
+		role.setPositionIdList(positionIdList);
 		return R.ok().put("role", role);
 	}
 	

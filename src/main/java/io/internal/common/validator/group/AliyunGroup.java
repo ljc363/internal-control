@@ -5,7 +5,7 @@ package io.internal.common.validator.group;
 /**
  * 阿里云
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public interface AliyunGroup {
 }

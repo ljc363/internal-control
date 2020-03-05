@@ -14,7 +14,7 @@ import io.internal.modules.sys.service.SysConfigService;
 /**
  * 文件上传Factory
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public final class OSSFactory {
     private static SysConfigService sysConfigService;

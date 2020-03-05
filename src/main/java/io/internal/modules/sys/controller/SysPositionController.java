@@ -59,7 +59,7 @@ public class SysPositionController extends AbstractController{
      * 部门Id(管理员则为0)
      */
     @RequestMapping("/info")
-    @RequiresPermissions("sys:dept:list")
+    @RequiresPermissions("sys:position:list")
     public R info(){
        long positionId = 0;
        if(getUserId() != Constant.SUPER_ADMIN) {

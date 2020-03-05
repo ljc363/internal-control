@@ -5,7 +5,7 @@ package io.internal.common.utils;
 /**
  * 常量
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public class Constant {
 	/** 超级管理员ID */

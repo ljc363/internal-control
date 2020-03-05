@@ -45,6 +45,19 @@ CREATE TABLE `sys_role` (
   PRIMARY KEY (`role_id`)
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='角色';
 
+--项目记录
+CREATE TABLE `sys_project_M` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `projectName` varchar(100) COMMENT '项目名称',
+  `number` varchar(50) COMMENT '项目编号',
+  `remark` varchar(500) COMMENT '备注',
+  `personInCharge` varchar(100) COMMENT '负责人',
+  `starts_time` datetime COMMENT '开始时间',
+  `end_time` datetime COMMENT '结束时间',
+  `paecs` varchar(50) COMMENT '进度',
+  PRIMARY KEY (`id`)
+) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='项目记录';
+
 -- 用户与角色对应关系
 CREATE TABLE `sys_user_role` (
   `id` bigint NOT NULL AUTO_INCREMENT,

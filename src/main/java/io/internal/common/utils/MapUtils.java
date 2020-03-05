@@ -8,7 +8,7 @@ import java.util.HashMap;
 /**
  * Map工具类
  *
- * @author Mark sunlightcs@gmail.com
+ * @author
  */
 public class MapUtils extends HashMap<String, Object> {
 
