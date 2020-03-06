@@ -37,7 +37,7 @@ public class SysUserEntity implements Serializable {
 	 * 用户名
 	 */
 	@NotBlank(message="用户名不能为空", groups = {AddGroup.class, UpdateGroup.class})
-	private String username;
+	private String username ;
 
 	/**
 	 * 密码

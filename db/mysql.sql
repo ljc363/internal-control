@@ -46,9 +46,9 @@ CREATE TABLE `sys_role` (
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='角色';
 
 --项目记录
-CREATE TABLE `sys_project_M` (
+CREATE TABLE `sys_project_m` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `projectName` varchar(100) COMMENT '项目名称',
+  `project_name` varchar(100) COMMENT '项目名称',
   `number` varchar(50) COMMENT '项目编号',
   `remark` varchar(500) COMMENT '备注',
   `personInCharge` varchar(100) COMMENT '负责人',
@@ -57,6 +57,47 @@ CREATE TABLE `sys_project_M` (
   `paecs` varchar(50) COMMENT '进度',
   PRIMARY KEY (`id`)
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='项目记录';
+
+--任务计划表
+CREATE TABLE `sys_task_schedule` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `projectName` varchar(100) COMMENT '项目名称',
+  `taskName` varchar(100) COMMENT '任务名称',
+  `subtask` varchar(100) COMMENT '子任务',
+  `planneStartTime` datetime COMMENT '计划开始时间',
+  `plannedEndTime` datetime COMMENT '计划结束时间',
+  `actualEndTime` datetime COMMENT '实际结束时间',
+  `ctualStartTime` datetime COMMENT '实际结束时间',
+  `paecs` varchar(50) COMMENT '进度',
+  `personInCharge` varchar(100) COMMENT '负责人',
+  `auditor` varchar(100) COMMENT '审核人',
+   PRIMARY KEY (`id`)
+) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='任务计划表';
+
+--工作日报
+CREATE TABLE `sys_daily_work_report` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `work_done_today` MEDIUMTEXT  COMMENT '完成的工作',
+  `un_finished_work` MEDIUMTEXT  COMMENT '未完成的工作',
+  `coordinate` varchar(500) COMMENT '协调工作',
+  `submission_time` datetime COMMENT '提交时间',
+  `submitter` varchar(100) COMMENT '提交人',
+  `remarks` varchar(500) COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='工作日报';
+
+--工作周报
+CREATE TABLE `sys_weekly_work_report` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `work_done_this_week` MEDIUMTEXT  COMMENT '本周完成的工作',
+  `week_summary` MEDIUMTEXT  COMMENT '本周工作总结',
+  `work_plan_for_next_week` MEDIUMTEXT  COMMENT '下周工作计划',
+  `coordinate` varchar(500) COMMENT '协调工作',
+  `submission_time` datetime COMMENT '提交时间',
+  `submitter` varchar(100) COMMENT '提交人',
+  `remarks` varchar(500) COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='工作周报';
 
 -- 用户与角色对应关系
 CREATE TABLE `sys_user_role` (
