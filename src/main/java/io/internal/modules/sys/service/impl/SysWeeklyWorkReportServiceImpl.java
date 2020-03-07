@@ -29,8 +29,6 @@ public class SysWeeklyWorkReportServiceImpl extends ServiceImpl<SysWeeklyWorkRep
 
     @Override
     public boolean saveWeeklyWorkReport(SysWeeklyWorkReportEntity weeklyWorkReport) {
-        SysUserEntity sysUserEntity = new  SysUserEntity();
-        weeklyWorkReport.setSubmitter(sysUserEntity.getUsername());
         weeklyWorkReport.setSubmissionTime(new DateTime());
         return this.save(weeklyWorkReport);
     }

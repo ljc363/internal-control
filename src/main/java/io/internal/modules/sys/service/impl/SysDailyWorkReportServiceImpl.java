@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.internal.common.utils.PageUtils;
 import io.internal.modules.sys.dao.SysDailyWorkReportDao;
 import io.internal.modules.sys.entity.SysDailyWorkReportEntity;
-import io.internal.modules.sys.entity.SysUserEntity;
 import io.internal.modules.sys.service.SysDailyWorkReportService;
 import io.internal.modules.sys.service.SysUserService;
 import org.apache.commons.lang.StringUtils;
@@ -37,10 +36,7 @@ public class SysDailyWorkReportServiceImpl extends ServiceImpl<SysDailyWorkRepor
 
     @Override
     public boolean saveSysDailyWorkReport(SysDailyWorkReportEntity dailyWorkReport) {
-
-        SysUserEntity sysUserEntity = new SysUserEntity();
         dailyWorkReport.setSubmissionTime(new DateTime());
-        dailyWorkReport.setSubmitter(sysUserEntity.getUsername());
         return this.save(dailyWorkReport);
     }
 

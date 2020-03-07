@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
@@ -39,23 +41,27 @@ public class SysTaskScheduleEntity implements Serializable {
 	/**
 	 * 计划开始时间
 	 */
-	private Date planneStartTime;
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
+	private Date plannedStartTime;
 	/**
 	 * 计划结束时间
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date plannedEndTime;
 	/**
 	 * 实际结束时间
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date actualEndTime;
 	/**
-	 * 实际结束时间
+	 * 实际开始时间
 	 */
-	private Date tualStartTime;
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
+	private Date actualStartTime;
 	/**
 	 * 进度
 	 */
-	private String paecs;
+	private Integer status;
 	/**
 	 * 负责人
 	 */

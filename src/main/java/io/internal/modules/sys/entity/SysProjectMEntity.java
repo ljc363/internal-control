@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.internal.modules.sys.enums.PacesEnum;
 import lombok.Data;
 
@@ -45,14 +46,16 @@ public class SysProjectMEntity implements Serializable {
 	/**
 	 * 开始时间
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date startsTime;
 	/**
 	 * 结束时间
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date endTime;
 	/**
-	 * 进度
+	 * 状态
 	 */
-	private PacesEnum paecs;
+	private Integer status;
 
 }

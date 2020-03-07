@@ -7,6 +7,7 @@ import io.internal.common.utils.PageUtils;
 import io.internal.common.utils.R;
 import io.internal.modules.sys.entity.SysDailyWorkReportEntity;
 import io.internal.modules.sys.service.SysDailyWorkReportService;
+import io.internal.modules.sys.service.SysUserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,10 +29,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("sys/dailyWorkReport")
-public class SysDailyWorkReportController {
+public class SysDailyWorkReportController extends AbstractController{
     @Autowired
     private SysDailyWorkReportService sysDailyWorkReportService;
 
+    @Autowired
+    private SysUserService sysUserService;
     /**
      * 列表
      */
@@ -61,8 +64,9 @@ public class SysDailyWorkReportController {
     @RequestMapping("/save")
     @RequiresPermissions("sys:dailyWorkReport:save")
     public R save(@RequestBody SysDailyWorkReportEntity sysDailyWorkReport){
-		sysDailyWorkReportService.save(sysDailyWorkReport);
 
+        sysDailyWorkReport.setSubmitter( sysUserService.getById(getUserId()).getUsername());
+        sysDailyWorkReportService.save(sysDailyWorkReport);
         return R.ok();
     }
 

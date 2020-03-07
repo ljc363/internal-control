@@ -55,6 +55,7 @@ public class SysRoleEntity implements Serializable {
 	/**
 	 * 创建者ID
 	 */
+	@TableField(exist=false)
 	private Long createUserId;
 
 	@TableField(exist=false)

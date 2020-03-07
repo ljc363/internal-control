@@ -1,5 +1,6 @@
 package io.internal.modules.sys.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -35,7 +36,7 @@ public class SysProjectMController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("sys:projectM:list")
+    @RequiresPermissions("sys:projectM:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = sysProjectMService.queryPage(params);
 
