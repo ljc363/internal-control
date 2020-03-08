@@ -26,19 +26,11 @@ public class SysPositionEntity implements Serializable {
 	 */
 	@TableId
 	private Long positionId;
-	/**
-	 * 部门ID，一级部门为0
-	 */
-	private Long parentId;
+
 	/**
 	 * 岗位名称
 	 */
 	private String name;
-	/**
-	 * 部门名称
-	 */
-	@TableField(exist=false)
-	private String parentName;
 	/**
 	 * 排序
 	 */
@@ -48,11 +40,5 @@ public class SysPositionEntity implements Serializable {
 	 */
 	@TableLogic
 	private Integer delFlag;
-	/**
-	 * ztree属性
-	 */
-	@TableField(exist=false)
-	private Boolean open;
-	@TableField(exist=false)
-	private List<?> list;
+
 }

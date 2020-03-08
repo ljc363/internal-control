@@ -14,14 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 import io.internal.common.utils.Query;
 
 @Service("sysDailyWorkReportService")
 public class SysDailyWorkReportServiceImpl extends ServiceImpl<SysDailyWorkReportDao, SysDailyWorkReportEntity> implements SysDailyWorkReportService {
 
-    @Autowired
-    private SysUserService sysUserService;
+
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         String submitter = (String)params.get("submitter");
@@ -36,7 +36,6 @@ public class SysDailyWorkReportServiceImpl extends ServiceImpl<SysDailyWorkRepor
 
     @Override
     public boolean saveSysDailyWorkReport(SysDailyWorkReportEntity dailyWorkReport) {
-        dailyWorkReport.setSubmissionTime(new DateTime());
         return this.save(dailyWorkReport);
     }
 

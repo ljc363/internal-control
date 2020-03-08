@@ -59,14 +59,14 @@ public class SysWeeklyWorkReportController extends AbstractController{
     @RequiresPermissions("sys:weeklyWorkReport:info")
     public R info(@PathVariable("id") Long id){
 		SysWeeklyWorkReportEntity sysWeeklyWorkReport = sysWeeklyWorkReportService.getById(id);
-        return R.ok().put("sysWeeklyWorkReport", sysWeeklyWorkReport);
+        return R.ok().put("weeklyWorkReport", sysWeeklyWorkReport);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("sys:weeklyWorkReport:save")
+    @RequiresPermissions("sys:weeklyWorkReport:save")
     public R save(@RequestBody SysWeeklyWorkReportEntity sysWeeklyWorkReport){
         Long  userId  = getUserId();
         sysWeeklyWorkReport.setSubmitter( sysUserService.getById(userId).getUsername());

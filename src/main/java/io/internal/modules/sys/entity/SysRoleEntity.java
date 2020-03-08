@@ -41,18 +41,6 @@ public class SysRoleEntity implements Serializable {
 	private String remark;
 
 	/**
-	 * 岗位ID
-	 */
-	@NotNull(message="岗位不能为空")
-	private Long positionId;
-
-	/**
-	 * 岗位名称
-	 */
-	@TableField(exist=false)
-	private String positionName;
-
-	/**
 	 * 创建者ID
 	 */
 	@TableField(exist=false)
@@ -61,8 +49,7 @@ public class SysRoleEntity implements Serializable {
 	@TableField(exist=false)
 	private List<Long> menuIdList;
 
-	@TableField(exist=false)
-	private List<Long> positionIdList;
+
 	/**
 	 * 创建时间
 	 */

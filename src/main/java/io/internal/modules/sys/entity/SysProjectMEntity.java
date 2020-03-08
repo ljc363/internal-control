@@ -36,10 +36,6 @@ public class SysProjectMEntity implements Serializable {
 	 */
 	private String number;
 	/**
-	 * 备注
-	 */
-	private String remark;
-	/**
 	 * 负责人
 	 */
 	private String personInCharge;
@@ -57,5 +53,9 @@ public class SysProjectMEntity implements Serializable {
 	 * 状态
 	 */
 	private Integer status;
+	/**
+	 * 备注
+	 */
+	private String remark;
 
 }

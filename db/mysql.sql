@@ -63,7 +63,7 @@ CREATE TABLE `sys_task_schedule` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `project_name` varchar(100) COMMENT '项目名称',
   `task_name` varchar(100) COMMENT '任务名称',
-  `subtask` varchar(100) COMMENT '子任务',
+  `sub_task` varchar(100) COMMENT '子任务',
   `planned_start_time` datetime COMMENT '计划开始时间',
   `planned_end_time` datetime COMMENT '计划结束时间',
   `actual_start_time` datetime COMMENT '实际开始时间',
@@ -71,6 +71,7 @@ CREATE TABLE `sys_task_schedule` (
   `status` tinyint COMMENT '状态 ',
   `person_in_charge` varchar(100) COMMENT '负责人',
   `auditor` varchar(100) COMMENT '审核人',
+  `remark` varchar(500) COMMENT '备注',
    PRIMARY KEY (`id`)
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='任务计划表';
 
@@ -78,7 +79,7 @@ CREATE TABLE `sys_task_schedule` (
 CREATE TABLE `sys_daily_work_report` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `work_done_today` MEDIUMTEXT  COMMENT '完成的工作',
-  `un_finished_work` MEDIUMTEXT  COMMENT '未完成的工作',
+  `unfinished_work` MEDIUMTEXT  COMMENT '未完成的工作',
   `coordinate` varchar(500) COMMENT '协调工作',
   `submission_time` datetime COMMENT '提交时间',
   `submitter` varchar(100) COMMENT '提交人',
@@ -192,14 +193,6 @@ INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `
 INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (3, 1, '角色管理', 'sys/role', NULL, 1, 'role', 2);
 INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (4, 1, '菜单管理', 'sys/menu', NULL, 1, 'menu', 3);
 INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (5, 1, 'SQL监控', 'http://localhost:8089/internal-control/druid/sql.html', NULL, 1, 'sql', 4);
-INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (7, 6, '查看', NULL, 'sys:schedule:list,sys:schedule:info', 2, NULL, 0);
-INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (8, 6, '新增', NULL, 'sys:schedule:save', 2, NULL, 0);
-INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (9, 6, '修改', NULL, 'sys:schedule:update', 2, NULL, 0);
-INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (10, 6, '删除', NULL, 'sys:schedule:delete', 2, NULL, 0);
-INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (11, 6, '暂停', NULL, 'sys:schedule:pause', 2, NULL, 0);
-INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (12, 6, '恢复', NULL, 'sys:schedule:resume', 2, NULL, 0);
-INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (13, 6, '立即执行', NULL, 'sys:schedule:run', 2, NULL, 0);
-INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (14, 6, '日志列表', NULL, 'sys:schedule:log', 2, NULL, 0);
 INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (15, 2, '查看', NULL, 'sys:user:list,sys:user:info', 2, NULL, 0);
 INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (16, 2, '新增', NULL, 'sys:user:save,sys:role:select', 2, NULL, 0);
 INSERT INTO `sys_menu`(`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES (17, 2, '修改', NULL, 'sys:user:update,sys:role:select', 2, NULL, 0);

@@ -58,7 +58,7 @@ public class SysUserEntity implements Serializable {
 
 
 	/**
-	 * 部门名称
+	 * 岗位名称
 	 */
 	@TableField(exist=false)
 	private String positionName;

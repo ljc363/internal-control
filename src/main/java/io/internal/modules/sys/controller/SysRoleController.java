@@ -31,8 +31,7 @@ public class SysRoleController extends AbstractController {
 	private SysRoleService sysRoleService;
 	@Autowired
 	private SysRoleMenuService sysRoleMenuService;
-	@Autowired
-	private SysRolePositionService sysRolePositionService;
+
 	/**
 	 * 角色列表
 	 */
@@ -78,8 +77,7 @@ public class SysRoleController extends AbstractController {
 		List<Long> menuIdList = sysRoleMenuService.queryMenuIdList(roleId);
 		role.setMenuIdList(menuIdList);
 
-		List<Long>positionIdList = sysRolePositionService.qureyPositionList(new Long[] {roleId});
-		role.setPositionIdList(positionIdList);
+
 		return R.ok().put("role", role);
 	}
 	

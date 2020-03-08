@@ -36,7 +36,7 @@ public class SysTaskScheduleController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("sys:taskSchedule:list")
+    @RequiresPermissions("sys:taskSchedule:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = sysTaskScheduleService.queryPage(params);
 
@@ -52,7 +52,7 @@ public class SysTaskScheduleController {
     public R info(@PathVariable("id") Long id){
 		SysTaskScheduleEntity sysTaskSchedule = sysTaskScheduleService.getById(id);
 
-        return R.ok().put("sysTaskSchedule", sysTaskSchedule);
+        return R.ok().put("taskSchedule", sysTaskSchedule);
     }
 
     /**

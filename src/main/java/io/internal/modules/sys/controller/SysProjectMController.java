@@ -10,13 +10,7 @@ import io.internal.modules.sys.entity.SysProjectMEntity;
 import io.internal.modules.sys.service.SysProjectMService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -47,12 +41,12 @@ public class SysProjectMController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     @RequiresPermissions("sys:projectM:info")
     public R info(@PathVariable("id") Long id){
-		SysProjectMEntity sysProjectM = sysProjectMService.getById(id);
+		SysProjectMEntity ProjectM = sysProjectMService.getById(id);
 
-        return R.ok().put("sysProjectM", sysProjectM);
+        return R.ok().put("projectM", ProjectM);
     }
 
     /**

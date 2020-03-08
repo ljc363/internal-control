@@ -3,20 +3,7 @@
 
 <mapper namespace="io.internal.modules.generator.dao.SysTaskScheduleDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="io.internal.modules.sys.entity.SysTaskScheduleEntity" id="sysTaskScheduleMap">
-        <result property="id" column="id"/>
-        <result property="projectname" column="projectName"/>
-        <result property="taskname" column="taskName"/>
-        <result property="subtask" column="subtask"/>
-        <result property="plannestarttime" column="planneStartTime"/>
-        <result property="plannedendtime" column="plannedEndTime"/>
-        <result property="actualendtime" column="actualEndTime"/>
-        <result property="ctualstarttime" column="ctualStartTime"/>
-        <result property="paecs" column="paecs"/>
-        <result property="personincharge" column="personInCharge"/>
-        <result property="auditor" column="auditor"/>
-    </resultMap>
+
 
 
 </mapper>

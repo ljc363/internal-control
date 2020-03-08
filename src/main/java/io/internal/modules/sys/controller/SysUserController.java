@@ -86,7 +86,7 @@ public class SysUserController extends AbstractController {
 	 * 用户信息
 	 */
 	@GetMapping("/info/{userId}")
-	//@RequiresPermissions("sys:user:info")
+	@RequiresPermissions("sys:user:info")
 	public R info(@PathVariable("userId") Long userId){
 		SysUserEntity user = sysUserService.getById(userId);
 		

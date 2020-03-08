@@ -10,7 +10,6 @@ import io.internal.common.utils.Constant;
 import io.internal.common.utils.PageUtils;
 import io.internal.common.utils.Query;
 import io.internal.modules.sys.dao.SysRoleDao;
-import io.internal.modules.sys.entity.SysPositionEntity;
 import io.internal.modules.sys.entity.SysRoleEntity;
 import io.internal.modules.sys.service.*;
 import org.apache.commons.lang.StringUtils;
@@ -39,7 +38,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> i
 	@Autowired
 	private SysRolePositionService sysRolePositionService;
 	@Autowired
-	private SysPositionServier sysPositionServier;
+	private SysPositionService sysPositionServier;
 
 	@Override
 	public PageUtils queryPage(Map<String, Object> params) {
@@ -52,14 +51,12 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> i
 				.like(StringUtils.isNotBlank(roleName),"role_name", roleName)
 				.eq(createUserId != null,"create_user_id", createUserId)
 		);
-              for (SysRoleEntity sysRoleEntity :page.getRecords()){
+             /* for (SysRoleEntity sysRoleEntity :page.getRecords()){
 				  SysPositionEntity sysPositionEntity = sysPositionServier.getById(sysRoleEntity.getPositionId());
 				  if (sysPositionEntity != null){
 					  sysRoleEntity.setPositionName(sysPositionEntity.getName());
 				  }
-
-
-			  }
+			  }*/
 		return new PageUtils(page);
 	}
 
@@ -75,7 +72,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> i
         //保存角色与菜单关系
         sysRoleMenuService.saveOrUpdate(role.getRoleId(), role.getMenuIdList());
 		//保存角色与岗位关系
-		sysRolePositionService.saveOrUpdate(role.getRoleId(), role.getPositionIdList());
+	//	sysRolePositionService.saveOrUpdate(role.getRoleId(), role.getPositionIdList());
     }
 
     @Override
@@ -88,7 +85,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleDao, SysRoleEntity> i
 
         //更新角色与菜单关系
         sysRoleMenuService.saveOrUpdate(role.getRoleId(), role.getMenuIdList());
-        sysRolePositionService.saveOrUpdate(role.getRoleId(), role.getPositionIdList());
+       // sysRolePositionService.saveOrUpdate(role.getRoleId(), role.getPositionIdList());
     }
 
     @Override

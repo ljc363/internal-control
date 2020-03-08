@@ -1,6 +1,7 @@
 package io.internal.modules.sys.controller;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 
 import io.internal.common.utils.PageUtils;
@@ -55,7 +56,7 @@ public class SysDailyWorkReportController extends AbstractController{
     public R info(@PathVariable("id") Long id){
 		SysDailyWorkReportEntity sysDailyWorkReport = sysDailyWorkReportService.getById(id);
 
-        return R.ok().put("sysDailyWorkReport", sysDailyWorkReport);
+        return R.ok().put("dailyWorkReport", sysDailyWorkReport);
     }
 
     /**
@@ -64,7 +65,7 @@ public class SysDailyWorkReportController extends AbstractController{
     @RequestMapping("/save")
     @RequiresPermissions("sys:dailyWorkReport:save")
     public R save(@RequestBody SysDailyWorkReportEntity sysDailyWorkReport){
-
+        sysDailyWorkReport.setSubmissionTime(new Date());
         sysDailyWorkReport.setSubmitter( sysUserService.getById(getUserId()).getUsername());
         sysDailyWorkReportService.save(sysDailyWorkReport);
         return R.ok();

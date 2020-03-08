@@ -9,6 +9,7 @@ import io.internal.modules.sys.dao.SysWeeklyWorkReportDao;
 import io.internal.modules.sys.entity.SysUserEntity;
 import io.internal.modules.sys.entity.SysWeeklyWorkReportEntity;
 import io.internal.modules.sys.service.SysWeeklyWorkReportService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -20,9 +21,11 @@ public class SysWeeklyWorkReportServiceImpl extends ServiceImpl<SysWeeklyWorkRep
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
+        String submitter = (String)params.get("submitter");
         IPage<SysWeeklyWorkReportEntity> page = this.page(
                 new Query<SysWeeklyWorkReportEntity>().getPage(params),
                 new QueryWrapper<SysWeeklyWorkReportEntity>()
+                .like(StringUtils.isBlank(submitter),"submitter",submitter)
         );
         return new PageUtils(page);
     }
