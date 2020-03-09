@@ -3,7 +3,7 @@ package io.internal.modules.sys.controller;
 import io.internal.common.utils.PageUtils;
 import io.internal.common.utils.R;
 import io.internal.modules.sys.entity.SysPositionEntity;
-import io.internal.modules.sys.service.SysPositionService;
+import io.internal.modules.sys.entity.service.SysPositionService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 

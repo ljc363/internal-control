@@ -6,10 +6,7 @@ package io.internal.modules.oss.cloud;
 import io.internal.common.utils.ConfigConstant;
 import io.internal.common.utils.Constant;
 import io.internal.common.utils.SpringContextUtils;
-import io.internal.modules.oss.cloud.AliyunCloudStorageService;
-import io.internal.modules.oss.cloud.CloudStorageConfig;
-import io.internal.modules.oss.cloud.CloudStorageService;
-import io.internal.modules.sys.service.SysConfigService;
+import io.internal.modules.sys.entity.service.SysConfigService;
 
 /**
  * 文件上传Factory

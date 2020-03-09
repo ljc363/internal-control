@@ -14,7 +14,6 @@ CREATE TABLE `sys_menu` (
 -- 岗位
 CREATE TABLE `sys_position` (
   `position_id` bigint NOT NULL AUTO_INCREMENT,
-  `parent_id` bigint COMMENT '部门ID，部门为0',
   `name` varchar(50) COMMENT '岗位名称',
   `order_num` int COMMENT '排序',
   `del_flag` tinyint DEFAULT 0 COMMENT '是否删除  -1：已删除  0：正常',
@@ -40,7 +39,6 @@ CREATE TABLE `sys_role` (
   `role_id` bigint NOT NULL AUTO_INCREMENT,
   `role_name` varchar(100) COMMENT '角色名称',
   `remark` varchar(100) COMMENT '备注',
-  `position_id` bigint(20) COMMENT '岗位ID',
   `create_time` datetime COMMENT '创建时间',
   PRIMARY KEY (`role_id`)
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='角色';
@@ -116,13 +114,6 @@ CREATE TABLE `sys_role_menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='角色与菜单对应关系';
 
--- 角色与岗位对应关系
-CREATE TABLE `sys_role_position` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `role_id` bigint COMMENT '角色ID',
-  `position_id` bigint COMMENT '岗位ID',
-  PRIMARY KEY (`id`)
-) ENGINE=`InnoDB` DEFAULT CHARACTER SET utf8mb4 COMMENT='角色与岗位对应关系';
 
 -- 系统用户Token
 CREATE TABLE `sys_user_token` (

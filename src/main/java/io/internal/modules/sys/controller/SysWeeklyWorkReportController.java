@@ -1,17 +1,13 @@
 package io.internal.modules.sys.controller;
 
-import java.util.Arrays;
 import java.util.Map;
 
-import cn.hutool.core.date.DateTime;
 import io.internal.common.utils.Constant;
 import io.internal.common.utils.PageUtils;
 import io.internal.common.utils.R;
-import io.internal.modules.sys.entity.SysUserEntity;
 import io.internal.modules.sys.entity.SysWeeklyWorkReportEntity;
-import io.internal.modules.sys.service.SysUserRoleService;
-import io.internal.modules.sys.service.SysUserService;
-import io.internal.modules.sys.service.SysWeeklyWorkReportService;
+import io.internal.modules.sys.entity.service.SysUserService;
+import io.internal.modules.sys.entity.service.SysWeeklyWorkReportService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
